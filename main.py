@@ -5,6 +5,7 @@ from datetime import datetime
 import smtplib
 from io import StringIO
 
+
 import os
 MY_EMAIL = os.environ.get("MY_EMAIL")
 MY_PASSWORD = os.environ.get("MY_PASSWORD")
