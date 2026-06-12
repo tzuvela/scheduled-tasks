@@ -3,10 +3,11 @@ import pandas
 import random
 from datetime import datetime
 import smtplib
+from io import StringIO
 
 import os
-MY_PASSWORD = os.environ.get("MY_EMAIL")
-MY_EMAIL = os.environ.get("MY_PASSWORD")
+MY_EMAIL = os.environ.get("MY_EMAIL")
+MY_PASSWORD = os.environ.get("MY_PASSWORD")
 
 today_tuple = datetime.now().month, datetime.now().day
 # print(today)
