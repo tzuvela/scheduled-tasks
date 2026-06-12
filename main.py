@@ -11,7 +11,8 @@ MY_EMAIL = os.environ.get("MY_PASSWORD")
 today_tuple = datetime.now().month, datetime.now().day
 # print(today)
 
-data = pandas.read_csv("./birthdays.csv")
+csv_data = os.environ.get("BIRTHDAYS_CSV")
+data = pandas.read_csv(StringIO(csv_data))
 # print(data)
 
 birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
