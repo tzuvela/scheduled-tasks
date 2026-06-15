@@ -30,4 +30,5 @@ jobs:
           FROM_NUM: ${{ secrets.FROM_NUM}}
           TO_NUM: ${{ secrets.TO_NUM}}
           
-        run: python main.py
+        run: python main.py 
+        
