@@ -1,0 +1,33 @@
+name: Weather Bot
+
+on:
+  schedule:
+    - cron: "0 8 * * 1-5"   # 8:00 AM, Monday–Friday (UTC)
+  workflow_dispatch:        # allows manual run
+
+jobs:
+  run-weather-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests python-dotenv twilio
+
+      - name: Run script
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
+          FROM_NUM: ${{ secrets.FROM_NUM}}
+          TO_NUM: ${{ secrets.TO_NUM}}
+          
+        run: python main.py
