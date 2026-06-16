@@ -1,11 +1,9 @@
 name: Weather Bot
 
-
 on:
   schedule:
-   # - cron: "55 6 * * 1-5"   # 8:00 AM, Monday–Friday (UTC)
-    - cron: "*/5 * * * *" # testing
-  workflow_dispatch:        # allows manual run
+    - cron: "*/5 * * * *"   # testing every 5 minutes
+  workflow_dispatch:
 
 jobs:
   run-weather-bot:
@@ -29,8 +27,6 @@ jobs:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           API_KEY: ${{ secrets.API_KEY }}
-          FROM_NUM: ${{ secrets.FROM_NUM}}
-          TO_NUM: ${{ secrets.TO_NUM}}
-          
-        run: python rain.py 
-        
+          FROM_NUM: ${{ secrets.FROM_NUM }}
+          TO_NUM: ${{ secrets.TO_NUM }}
+        run: python rain.py
