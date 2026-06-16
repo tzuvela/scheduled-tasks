@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install requests python-dotenv twilio
+          pip install -r requirements.txt
 
       - name: Run script
         env:
