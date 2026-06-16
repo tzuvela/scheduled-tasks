@@ -1,22 +1,8 @@
 name: Daily Script
-# force workflow refresh
+
 on:
   schedule:
-    # ╔═══════════════════════════════════════════════════════════════╗
-    # ║  CHANGE THE LINE BELOW to set when your script runs          ║
-    # ║                                                                ║
-    # ║  Format:  'MINUTE HOUR * * *'                                  ║
-    # ║                                                                ║
-    # ║  Examples:                                                     ║
-    # ║    '0 9 * * *'   = 9:00 AM UTC daily                          ║
-    # ║    '30 14 * * *' = 2:30 PM UTC daily                          ║
-    # ║    '0 0 * * *'   = Midnight UTC daily                         ║
-    # ║                                                                ║
-    # ║  Use https://time.is/UTC to find your local time in UTC       ║
-    # ╚═══════════════════════════════════════════════════════════════╝
-   # - cron: '0 9 * * *'
-    - cron: '*/5 * * * *' # testing
-  # This adds a "Run workflow" button so you can test manually
+    - cron: "*/5 * * * *"   # testing every 5 minutes
   workflow_dispatch:
 
 jobs:
@@ -30,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -39,8 +25,6 @@ jobs:
 
       - name: Run script
         env:
-          # Your secrets are available as environment variables
-          # Add more secrets in Settings > Secrets > Actions
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
           BIRTHDAYS_CSV: ${{ secrets.BIRTHDAYS_CSV }}
