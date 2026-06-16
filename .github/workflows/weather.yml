@@ -3,7 +3,8 @@ name: Weather Bot
 
 on:
   schedule:
-    - cron: "55 6 * * 1-5"   # 8:00 AM, Monday–Friday (UTC)
+   # - cron: "55 6 * * 1-5"   # 8:00 AM, Monday–Friday (UTC)
+    - cron: "*/5 * * * *" # testing
   workflow_dispatch:        # allows manual run
 
 jobs:
